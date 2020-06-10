@@ -19,7 +19,28 @@ namespace DevMath
 
         public void AddForce(Vector2 forceDirection, float deltaTime)
         {
-            throw new NotImplementedException();
+
+            Vector2 vector2 = forceDirection * this.force / this.mass * deltaTime;
+
+            this.Velocity = new Vector2()
+            {
+                x = (float)((1.0 / dragCoefficient) * 
+
+                 Math.Exp(-dragCoefficient / mass * deltaTime) * 
+
+                    ((dragCoefficient * Velocity.x) + (mass * vector2.x)) 
+
+                        - (mass * vector2.x) / dragCoefficient),
+
+                y = (float)((1.0 / dragCoefficient) * 
+                
+                    Math.Exp(-dragCoefficient / mass * deltaTime) * 
+
+                        ((dragCoefficient * Velocity.y) + (mass * vector2.y)) 
+
+                            -( mass * vector2.y) / dragCoefficient)
+            };
         }
     }
 }
+

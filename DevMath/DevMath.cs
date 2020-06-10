@@ -10,27 +10,27 @@ namespace DevMath
     {
         public static float Lerp(float a, float b, float t)
         {
-            throw new NotImplementedException();
+            return a + (b - a) * t;
         }
 
         public static float DistanceTraveled(float startVelocity, float acceleration, float time)
         {
-            throw new NotImplementedException();
+            return (float)(startVelocity + ((0.5f * acceleration) * time * time));
         }
 
         public static float Clamp(float value, float min, float max)
         {
-            throw new NotImplementedException();
+            return value > max ? max : (value < min ? min : value);
         }
 
         public static float RadToDeg(float angle)
         {
-            throw new NotImplementedException();
+            return(float)(angle * (180 / Math.PI));
         }
 
         public static float DegToRad(float angle)
         {
-            throw new NotImplementedException();
+            return (float)(angle * (Math.PI / 180));
         }
     }
 }
